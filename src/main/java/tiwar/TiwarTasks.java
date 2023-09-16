@@ -1,8 +1,6 @@
 package tiwar;
 
 import com.codeborne.selenide.Configuration;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import tiwar.pages.*;
 
 import java.util.TimerTask;
@@ -23,9 +21,11 @@ public class TiwarTasks extends TimerTask {
 
     TiwarAttributes tiwarAttributes = TiwarAttributes.getInstance();
 
-    public TiwarTasks(String browser, String headless) {
+    public TiwarTasks(String browser, String headless, String driverPath) {
         Configuration.browser = browser;
         Configuration.headless = Boolean.parseBoolean(headless);
+        if(driverPath != null)
+            System.setProperty("webdriver.gecko.driver", driverPath);
     }
 
     @Override

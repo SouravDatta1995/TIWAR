@@ -14,13 +14,10 @@ public class TiwarTest {
         if (args.length <= 2) {
             System.out.println("Please provide the Browser,Headless and WebDriver path as an argument." +
                     "If not Selenide will Automatically select");
-        } else {
-            String webDriverPath = args[2];
-            System.setProperty("webdriver.gecko.driver", webDriverPath);
         }
         Configuration.baseUrl = "http://tiwar.net";
-        LOGGER.info("Tiwar Automate STarted with " + args[0] + " Headless " + args[1]);
+        LOGGER.info("Tiwar Automate Started with " + args[0] + " Headless " + args[1]);
         Timer timer = new Timer();
-        timer.schedule(new TiwarTasks(args[0], args[1]), 0, TimeUnit.MINUTES.toMillis(3));
+        timer.schedule(new TiwarTasks(args[0], args[1], args[2]), 0, TimeUnit.MINUTES.toMillis(3));
     }
 }
