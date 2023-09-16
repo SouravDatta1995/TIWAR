@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 public class TiwarTest {
     public static void main(String[] args) {
-        Configuration.browser = Browsers.EDGE;
+        Configuration.browser = Browsers.FIREFOX;
         FirefoxOptions firefoxOptions = new FirefoxOptions();
         firefoxOptions.addArguments("--headless=new");
         Configuration.browserCapabilities = firefoxOptions;
