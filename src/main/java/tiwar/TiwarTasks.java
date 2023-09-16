@@ -24,14 +24,8 @@ public class TiwarTasks extends TimerTask {
 
     TiwarAttributes tiwarAttributes = TiwarAttributes.getInstance();
 
-    public TiwarTasks(String browser, String headless, String driverPath) {
-        if(driverPath != null) {
-            System.setProperty("webdriver.gecko.driver", driverPath);
-            WebDriver driver = new FirefoxDriver();
-            WebDriverRunner.setWebDriver(driver);
-        }
-        Configuration.browser = browser;
-        Configuration.headless = Boolean.parseBoolean(headless);
+    public TiwarTasks(String[] args) {
+
 
     }
 
@@ -50,7 +44,7 @@ public class TiwarTasks extends TimerTask {
             campaignPage.run();
             careerPage.run();
             clandungeonPage.run();
-            coliseumPage.run();
+//            coliseumPage.run();
             tiwarAttributes.reset();
         }
     }
