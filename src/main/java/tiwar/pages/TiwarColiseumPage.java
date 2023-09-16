@@ -75,9 +75,14 @@ public class TiwarColiseumPage extends TiwarBasePage {
                         healthCheckFlag = false;
                     }
                     if(currHealth <= MAX_HEALTH/2) {
+                        LOGGER.info("Coliseum - Health LOW {}", currHealth);
+                        linkDodge.click();
                         linkTincture.click();
+                        linkAttack.click();
+                        TimeUnit.SECONDS.sleep(2);
+                    } else {
+                        LOGGER.info("Coliseum - Health OK {}", currHealth);
                     }
-                    LOGGER.info("Coliseum - Health OK {}", currHealth);
                 } else if (spanHealthDRED.exists() && linkDodge.exists()) {
                     LOGGER.info("Coliseum - Health LOW {}", spanHealthDRED.getText());
                     linkDodge.click();

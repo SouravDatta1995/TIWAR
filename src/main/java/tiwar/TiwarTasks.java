@@ -1,5 +1,6 @@
 package tiwar;
 
+import com.codeborne.selenide.Configuration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import tiwar.pages.*;
@@ -21,6 +22,11 @@ public class TiwarTasks extends TimerTask {
     TiwarColiseumPage coliseumPage = TiwarColiseumPage.getInstance();
 
     TiwarAttributes tiwarAttributes = TiwarAttributes.getInstance();
+
+    public TiwarTasks(String browser, String headless) {
+        Configuration.browser = browser;
+        Configuration.headless = Boolean.parseBoolean(headless);
+    }
 
     @Override
     public void run() {
