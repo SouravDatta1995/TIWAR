@@ -1,6 +1,9 @@
 package tiwar;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.WebDriverRunner;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import tiwar.pages.*;
 
 import java.util.TimerTask;
@@ -22,10 +25,14 @@ public class TiwarTasks extends TimerTask {
     TiwarAttributes tiwarAttributes = TiwarAttributes.getInstance();
 
     public TiwarTasks(String browser, String headless, String driverPath) {
+        if(driverPath != null) {
+            System.setProperty("webdriver.gecko.driver", driverPath);
+            WebDriver driver = new FirefoxDriver();
+            WebDriverRunner.setWebDriver(driver);
+        }
         Configuration.browser = browser;
         Configuration.headless = Boolean.parseBoolean(headless);
-        if(driverPath != null)
-            System.setProperty("webdriver.gecko.driver", driverPath);
+
     }
 
     @Override
